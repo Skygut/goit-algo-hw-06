@@ -77,8 +77,8 @@ start_node = 1
 dfs_path = list(nx.dfs_edges(DG, source=start_node))
 
 # BFS (обхід у ширину)
-bfs_path = list(nx.bfs_edges(DG, source=start_node))
+# bfs_path = list(nx.bfs_edges(DG, source=start_node))
 
 # Виведення результатів DFS та BFS
 print("DFS Path:", dfs_path)
-print("BFS Path:", bfs_path)
+# print("BFS Path:", bfs_path)
