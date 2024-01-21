@@ -1,14 +1,11 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-# Створення направленого графа
 DG = nx.DiGraph()
 
-# Додавання 15 вершин
 for i in range(1, 16):
     DG.add_node(i)
 
-# Додавання направлених ребер з вагою
 weighted_edges = [
     (1, 2, 1),
     (1, 3, 2),
@@ -30,11 +27,10 @@ weighted_edges = [
     (14, 15, 1),
     (15, 1, 3),
     (10, 14, 15),
-    (13, 15, 2),  # Додавання нового ребра між 13 та 15 вершинами
+    (13, 15, 2),
 ]
 DG.add_weighted_edges_from(weighted_edges)
 
-# Фіксація позицій вершин
 fixed_positions = {
     1: (0.1, 0.9),
     2: (0.2, 0.7),
@@ -53,7 +49,6 @@ fixed_positions = {
     15: (0.4, 0.1),
 }
 
-# Візуалізація направленого графа
 plt.figure(figsize=(12, 10))
 nx.draw(
     DG,

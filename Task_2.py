@@ -26,7 +26,7 @@ weighted_edges = [
     (13, 14, 2),
     (14, 15, 1),
     (15, 1, 3),
-    (10, 14, 4),
+    (10, 14, 15),
     (13, 15, 2),
 ]
 DG.add_weighted_edges_from(weighted_edges)
