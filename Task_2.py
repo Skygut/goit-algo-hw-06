@@ -29,7 +29,7 @@ weighted_edges = [
     (13, 14, 2),
     (14, 15, 1),
     (15, 1, 3),
-    (10, 14, 15),
+    (10, 14, 4),
     (13, 15, 2),  # Додавання нового ребра між 13 та 15 вершинами
 ]
 DG.add_weighted_edges_from(weighted_edges)
@@ -69,3 +69,16 @@ nx.draw_networkx_edge_labels(
 )
 plt.title("Фіксований направлений граф транспортної мережі міста (15 вершин)")
 plt.show()
+
+# Вибір початкової вершини для алгоритмів
+start_node = 1
+
+# DFS (обхід у глибину)
+dfs_path = list(nx.dfs_edges(DG, source=start_node))
+
+# BFS (обхід у ширину)
+bfs_path = list(nx.bfs_edges(DG, source=start_node))
+
+# Виведення результатів DFS та BFS
+print("DFS Path:", dfs_path)
+print("BFS Path:", bfs_path)
