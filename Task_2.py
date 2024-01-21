@@ -1,14 +1,11 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
-# Створення направленого графа
 DG = nx.DiGraph()
 
-# Додавання 15 вершин
 for i in range(1, 16):
     DG.add_node(i)
 
-# Додавання направлених ребер з вагою
 weighted_edges = [
     (1, 2, 1),
     (1, 3, 2),
@@ -30,11 +27,10 @@ weighted_edges = [
     (14, 15, 1),
     (15, 1, 3),
     (10, 14, 4),
-    (13, 15, 2),  # Додавання нового ребра між 13 та 15 вершинами
+    (13, 15, 2),
 ]
 DG.add_weighted_edges_from(weighted_edges)
 
-# Фіксація позицій вершин
 fixed_positions = {
     1: (0.1, 0.9),
     2: (0.2, 0.7),
@@ -53,7 +49,16 @@ fixed_positions = {
     15: (0.4, 0.1),
 }
 
-# Візуалізація направленого графа
+start_node = 1
+
+dfs_path = list(nx.dfs_edges(DG, source=start_node))
+
+bfs_path = list(nx.bfs_edges(DG, source=start_node))
+
+
+print("DFS Path:", dfs_path)
+print("BFS Path:", bfs_path)
+
 plt.figure(figsize=(12, 10))
 nx.draw(
     DG,
@@ -69,16 +74,3 @@ nx.draw_networkx_edge_labels(
 )
 plt.title("Фіксований направлений граф транспортної мережі міста (15 вершин)")
 plt.show()
-
-# Вибір початкової вершини для алгоритмів
-start_node = 1
-
-# DFS (обхід у глибину)
-dfs_path = list(nx.dfs_edges(DG, source=start_node))
-
-# BFS (обхід у ширину)
-# bfs_path = list(nx.bfs_edges(DG, source=start_node))
-
-# Виведення результатів DFS та BFS
-print("DFS Path:", dfs_path)
-# print("BFS Path:", bfs_path)
