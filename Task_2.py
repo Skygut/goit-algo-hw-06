@@ -1,6 +1,38 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+
+def dfs(graph, start):
+    """Пошук у глибину (DFS) для графа"""
+    visited, stack = set(), [start]
+    dfs_order = []
+
+    while stack:
+        vertex = stack.pop()
+        if vertex not in visited:
+            visited.add(vertex)
+            dfs_order.append(vertex)
+            stack.extend(reversed([n for n in graph[vertex] if n not in visited]))
+
+    return dfs_order
+
+
+def bfs(graph, start):
+    """Пошук у ширину (BFS) для графа"""
+    visited, queue = set(), [start]
+    bfs_order = []
+
+    while queue:
+        vertex = queue.pop(0)
+        if vertex not in visited:
+            visited.add(vertex)
+            bfs_order.append(vertex)
+            queue.extend([n for n in graph[vertex] if n not in visited])
+
+    return bfs_order
+
+
+# Створення направленого графа
 DG = nx.DiGraph()
 
 for i in range(1, 16):
@@ -49,16 +81,15 @@ fixed_positions = {
     15: (0.4, 0.1),
 }
 
+# Виконання алгоритмів DFS і BFS
 start_node = 1
-
-dfs_path = list(nx.dfs_edges(DG, source=start_node))
-
-bfs_path = list(nx.bfs_edges(DG, source=start_node))
-
+dfs_path = dfs(DG, start_node)
+bfs_path = bfs(DG, start_node)
 
 print("DFS Path:", dfs_path)
 print("BFS Path:", bfs_path)
 
+# Візуалізація графа
 plt.figure(figsize=(12, 10))
 nx.draw(
     DG,
