@@ -103,7 +103,7 @@ nx.draw(
 nx.draw_networkx_edge_labels(
     DG, fixed_positions, edge_labels=nx.get_edge_attributes(DG, "weight")
 )
-plt.title("Фіксований направлений граф транспортної мережі міста (15 вершин)")
+plt.title("Граф транспортної мережі із 15 зупинками (вершинами)")
 plt.show()
 
 print("Найкоротший шлях від вершини 1 до вершини 15:", shortest_path)
