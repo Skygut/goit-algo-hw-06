@@ -81,7 +81,6 @@ fixed_positions = {
     15: (0.4, 0.1),
 }
 
-# Виконання алгоритмів DFS і BFS
 start_node = 1
 dfs_path = dfs(DG, start_node)
 bfs_path = bfs(DG, start_node)
@@ -89,7 +88,6 @@ bfs_path = bfs(DG, start_node)
 print("DFS Path:", dfs_path)
 print("BFS Path:", bfs_path)
 
-# Візуалізація графа
 plt.figure(figsize=(12, 10))
 nx.draw(
     DG,
@@ -103,5 +101,5 @@ nx.draw(
 nx.draw_networkx_edge_labels(
     DG, fixed_positions, edge_labels=nx.get_edge_attributes(DG, "weight")
 )
-plt.title("Фіксований направлений граф транспортної мережі міста (15 вершин)")
+plt.title("Граф транспортної мережі із 15 зупинками (вершинами)")
 plt.show()
