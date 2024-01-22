@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 
 
 def dfs(graph, start):
-    """Пошук у глибину (DFS) для графа"""
     visited, stack = set(), [start]
     dfs_order = []
 
@@ -18,7 +17,6 @@ def dfs(graph, start):
 
 
 def bfs(graph, start):
-    """Пошук у ширину (BFS) для графа"""
     visited, queue = set(), [start]
     bfs_order = []
 
